@@ -40,9 +40,20 @@ public class ControladorJogador : MonoBehaviour
     {
         if (collision.name == "Voador")
         {
+            // Marcando um ponto no placar
             juizDoJogo.MarcarPonto();
+
+            // Volta o objeto para a posição horizontal original
             collision.GetComponent<ControladorVoador>().posicaoObj.x =
                 collision.GetComponent<ControladorVoador>().posInicialX;
+
+            // Atualizar a posição vertical do objeto
+            float posicaoY = Random.value * 467;
+            collision.GetComponent<ControladorVoador>().posicaoObj.y = posicaoY;
+
+            // trocar a imagem do objeto a ser coletado
+            collision.GetComponent<ControladorVoador>().MudarImagem();
+
         }
     }
 }
